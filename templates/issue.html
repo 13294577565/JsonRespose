@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学习任务发布</title>
+    {% load staticfiles %}
+    <title>自定义使用tinymce</title>
+   <script src="{% static 'tiny_mce/tiny_mce.js' %}"></script>
+    <script>
+     tinyMCE.init({
+       'mode':'textareas',
+       'theme':'advanced',
+        'width':450,
+       'height':300
+    })</script>
+</head>
+<body>
+{# <script type="text/javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>#}
+{#<script>#}
+{#    CKEDITOR.replace('task_content',{uiColor:'#FFFFFF'})#}
+{#</script>#}
+
+<h2>任务界面</h2>
+
+<form action="{% url 'issue' %}" method="post">
+    <label>
+         <textarea name="comment_content"></textarea>
+     </label>
+    <br>
+    <input type="submit" value="提交任务" class="btn btn-default">
+</form>
+
+
+
+
+</body>
+</html>

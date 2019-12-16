@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>主页</title>
+</head>
+<body background="{% static 'image/back.jpg' %}">
+<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<h1 style="text-align: center;color: #d9edf7">学生日常表现管理系统</h1>
+
+
+<nav class="navbar navbar-default" role="navigation" style="background-color: #d9edf7">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="{% url 'login' %}">登录</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse" style="height: 50px; width: 1300px; background-color: #d9edf7">
+
+        <ul class="nav navbar-nav">
+            <li><a href="{% url 'register' %}">注册</a></li>
+            <li><a href="{% url 'user_information' %}">个人信息</a></li>
+            <li><a href="{% url 'tasks' %}">任务完成情况</a></li>
+            <li><a href="{% url 'upadta_infor' %}">修改个人信息</a></li>
+            <li><a href="{% url 'issue' %}">任务发布页面</a></li>
+            <li><a href="{% url 'list' %}">班级列表</a></li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">注销</a></li>
+        </ul>
+    </div><!-- /.navbar-collapse -->
+    <div style="background-image: {% static 'image/2.jpg' %} ">
+        <form role="form" action="" method="post" class="login-form">
+            {% for foo in content %}
+			                    	<div class="form-group">
+			                    		<label class="sr-only" for="name">姓名</label>
+			                        	<input type="text" name="name" placeholder="姓名:" class="name form-control" id="name" value="{{ foo.name }}">
+                                    </div>
+			                    	<div class="form-group">
+			                    		<label class="sr-only" for="username">账号</label>
+			                        	<input type="text" name="username" placeholder="{{ foo.user_name }}" class="username form-control" id="username" value="{{ foo.user_name }}">
+			                        </div>
+                                    <div class="form-group">
+			                        	<label class="sr-only" for="password">密码</label>
+			                        	<input type="password" name="password" placeholder="Password..." class="form-password form-control" id="password">
+			                        </div>
+                                    <div class="form-group">
+			                    		<label class="sr-only" for="phone">电话</label>
+			                        	<input type="text" name="phone" placeholder="电话：{{ foo.phone }}" class="form-username form-control" id="phone" value="{{ foo.phone }}">
+			                        </div>
+                                    <div class="form-group">
+			                    		<label class="sr-only" for="age">年龄</label>
+			                        	<input type="text" name="age" placeholder="年龄：{{ foo.age }}" class="form-username form-control" id="age" value="{{ foo.age }}">
+			                        </div>
+                                    <div class="form-group">
+			                    		<label class="sr-only" for="sex">性别</label>
+			                        	<input type="text" name="sex" placeholder="性别：{{ foo.sex }}" class="form-username form-control" id="sex" value="{{ foo.sex }}">
+			                        </div>
+
+                                    <div class="form-group">
+			                    		<label class="sr-only" for="email">邮箱</label>
+			                        	<input type="text" name="email" placeholder="邮箱：{{ foo.email }}" class="email form-control" id="email" value="{{ foo.email }}">
+			                        </div>
+                                    <div class="form-group">
+			                    		<label class="sr-only" for="adress">地址</label>
+			                        	<input type="text" name="adress" placeholder="地址：{{ foo.adress }}" class="adress form-control" id="adress" value="{{ foo.adress }}">
+			                        </div>
+
+
+                                    <div class="form-group">
+			                    		<label class="sr-only" for="adress">简介</label>
+			                        	<input type="text" name="brief" placeholder="简介：{{ foo.brief }}" class="brief form-control" id="brief" value="{{ foo.brief }}">
+			                        </div>
+
+                                    <div class="form-group">
+			                    		<label class="sr-only" for="adress">特点</label>
+			                        	<input type="text" name="trait" placeholder="特点：{{ foo.trait }}" class="trait form-control" id="trait" value="{{ foo.trait }}">
+			                        </div>
+                                    <div class="form-group">
+			                    		<label class="sr-only" for="education">学历</label>
+			                        	<input type="text" name="education" placeholder="学历:{{ foo.education }}" class="form-username form-control" id="education" value="{{ foo.education }}">
+			                        </div>
+			                        <button type="submit" class="btn">修改</button>
+                {% endfor %}
+        </form>
+    </div>
+</nav>
+<br>
+
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

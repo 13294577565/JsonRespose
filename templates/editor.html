@@ -1,0 +1,23 @@
+<html>
+<head>
+    {% load staticfiles %}
+    <title>自定义使用tinymce</title>
+   <script src="{% static 'tiny_mce/tiny_mce.js' %}"></script>
+    <script>
+     tinyMCE.init({
+       'mode':'textareas',
+       'theme':'advanced',
+        'width':450,
+       'height':300
+    })</script>
+</head>
+<body>
+<form action="">
+    <label>
+         <textarea name="comment_content">富文本</textarea>
+     </label>
+    <br>
+    <input type="submit" value="提交评论" class="btn btn-default">
+</form>
+</body>
+</html>
